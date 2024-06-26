@@ -69,7 +69,7 @@ class VisorController {
     );
   }
 
-  bool floatCheck(String val) {
+  bool fCheck(String val) {
     String floatingPoint = val.toString().split('.')[1];
     bool res = int.parse(floatingPoint) != 0;
     return res;
@@ -116,7 +116,7 @@ class VisorController {
 
     nums.clear();
     nums.add(response);
-    if (floatCheck(response.toString())) {
+    if (fCheck(response.toString())) {
       fillHistory('= $response');
     } else {
       fillHistory('= ${response.toInt()}');
@@ -144,7 +144,7 @@ class VisorController {
     } else {
       operation = op;
       fillHistory('');
-      if (floatCheck(nums[0].toString())) {
+      if (fCheck(nums[0].toString())) {
         fillHistory('${nums[0].toString()} $op');
       } else {
         fillHistory('${nums[0].toInt().toString()} $op');
@@ -169,13 +169,13 @@ class VisorController {
 
       nums.insert(1, double.parse(control.text));
 
-      if (floatCheck(nums[0].toString())) {
+      if (fCheck(nums[0].toString())) {
         fillHistory('${nums[0].toString()} $operation');
       } else {
         fillHistory('${nums[0].toInt().toString()} $operation');
       }
 
-      if (floatCheck(nums[1].toString())) {
+      if (fCheck(nums[1].toString())) {
         fillHistory(nums[1].toString());
       } else {
         fillHistory(nums[1].toInt().toString());
